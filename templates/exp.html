@@ -1,0 +1,60 @@
+<div class="panel-heading">
+	<p class="panel-title text-center">{{ date.month }}月{{ date.day }}日<br>星期{{ wd }}</p>
+</div>
+<table class="table table-bordered" id="exp-table">
+	<tr>
+		<th width="20%">分類</th>
+		<th>項目</th>
+			<th width="15%">金額</th>
+			<th width="15%">付款方式</th>
+			<th width="1%"></th>
+	</tr>
+	{% for exp in expl %}
+	<tr>
+		<input type="hidden" name="exp-id" value="{{ exp.id }}" />
+		<td data-input="categ"><span>{{ exp.categ.prim }} ({{ exp.categ.scnd }})</span><input type="hidden" value="{{ exp.categ.id }}" /></td>
+		<td data-input="text-input"><span>{{ exp.name }}</span><input type="hidden" value="{{ exp.name }}" /></td>
+		<td data-input="text-input"><span>{{ exp.amount }}</span><input type="hidden" value="{{ exp.amount }}" /></td>
+		<td data-input="pay"><span>{{ exp.pay.name }}</span><input type="hidden" value="{{ exp.pay.id }}" /></td>
+		<td><span class="glyphicon glyphicon-pencil"></span></td>
+	</tr>
+	{% endfor %}
+</table>
+
+<div class="grid-input" id="input-categ">
+	<select class="form-control">
+		{% for c in categ %}
+		<option value="{{ c.id }}">{{ c.prim }} ({{ c.scnd }})</option>
+		{% endfor %}
+	</select>
+</div>
+<div class="grid-input" id="input-text">
+	<input type="text" class="form-control" />
+</div>
+<div class="grid-input" id="input-pay">
+	<select class="form-control">
+		<option value="1">現金</option>
+		{% for c in credit %}
+		<option value="{{ c.id }}">{{ c.name }}</option>
+		{% endfor %}
+	</select>
+</div>
+
+
+<div id="exp-dynamic">
+	<select name="categ" class="form-control">
+		<option value=""></option>
+		{% for c in categ %}
+		<option value="{{ c.id }}">{{ c.prim }} ({{ c.scnd }})</option>
+		{% endfor %}
+	</select>
+	<input type="text" name="name" class="form-control" />
+	<input type="text" name="amount" class="form-control" />
+	<select name="pay" class="form-control">
+		<option value=""></option>
+		<option value="1">現金</option>
+		{% for c in credit %}
+		<option value="{{ c.id }}">{{ c.name }}</option>
+		{% endfor %}
+	</select>
+</div>
