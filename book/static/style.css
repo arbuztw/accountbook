@@ -1,4 +1,18 @@
+#exp-table {
+	border-collapse: separate !important;
+}
+
+#exp-table tr td span {
+	line-height: 34px;
+}
+
+
+#exp-table td.current {
+	border-color: #428bca;
+}
+
 .grid-input {
+	position: absolute;
 	display: none;
 }
 

@@ -4,4 +4,7 @@ function getDStr(d) {
 }
 $(function(){
 	exp.load(nowday);
+	$(document).click(function(){
+		exp.select($(null));
+	});
 });

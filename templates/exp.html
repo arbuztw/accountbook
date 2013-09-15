@@ -11,11 +11,11 @@
 	</tr>
 	{% for exp in expl %}
 	<tr>
-		<input type="hidden" name="exp-id" value="{{ exp.id }}" />
-		<td data-input="input-categ"><span>{{ exp.categ.prim }} ({{ exp.categ.scnd }})</span><input type="hidden" value="{{ exp.categ.id }}" /></td>
-		<td data-input="input-text"><span>{{ exp.name }}</span><input type="hidden" value="{{ exp.name }}" /></td>
-		<td data-input="input-text"><span>{{ exp.amount }}</span><input type="hidden" value="{{ exp.amount }}" /></td>
-		<td data-input="input-pay"><span>{{ exp.pay.name }}</span><input type="hidden" value="{{ exp.pay.id }}" /></td>
+		<input type="hidden" name="id" value="{{ exp.id }}" />
+		<td data-input="input-categ"><span>{{ exp.categ.prim }} ({{ exp.categ.scnd }})</span><input name="categ" type="hidden" value="{{ exp.categ.id }}" /></td>
+		<td data-input="input-text"><span>{{ exp.name }}</span><input name="name" type="hidden" value="{{ exp.name }}" /></td>
+		<td data-input="input-text"><span>{{ exp.amount }}</span><input name="amount" type="hidden" value="{{ exp.amount }}" /></td>
+		<td data-input="input-pay"><span>{{ exp.pay.name }}</span><input name="pay" type="hidden" value="{{ exp.pay.id }}" /></td>
 		<td><span class="glyphicon glyphicon-pencil"></span></td>
 	</tr>
 	{% endfor %}

@@ -30,6 +30,12 @@ class Exp(models.Model):
 	def __unicode__(self):
 		return self.name
 
+	def __getitem__(self, name):
+		return self.__getattribute__(name)
+
+	def __setitem__(self, name, val):
+		self.__setattr__(name, val)
+
 class Credit(models.Model):
 	year = models.IntegerField()
 	name = models.CharField(max_length=50)
