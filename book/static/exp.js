@@ -8,13 +8,14 @@ var exp = new function() {
 			$('.exp-add').find('input, select').focus(that.autoAdd);
 			$('#exp-table td').each(that.editable);
 			$('.grid-input').children().blur(function(){
-				that.curedit.children('input').val($(this).val());
+				var cur = that.curedit;
+				cur.children('input').val($(this).val());
 				if ($(this).parent().attr('id') == 'input-text')
-					that.curedit.children('span').text($(this).val());
+					cur.children('span').text($(this).val());
 				else
-					that.curedit.children('span').text($(this).children('option:selected').text());
+					cur.children('span').text($(this).children('option:selected').text());
 				$(this).val('').parent().hide();
-				that.modify(that.curedit);
+				that.modify(cur);
 
 			});
 		});
@@ -69,7 +70,7 @@ var exp = new function() {
 	this.modify = function(ele) {
 		var id = ele.parent().children('input[name=id]').val();
 		var qstr = 'id='+id+'&'+ele.children().serialize()+'&'+$('input[name=csrfmiddlewaretoken]').serialize();
-		$.post('/exp/modify', qstr);
+		$.post('/exp/modify', qstr, monthly.load);
 	};
 	//check Data is valid
 	this.checkData = function(idx, ele) {

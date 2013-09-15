@@ -1,0 +1,29 @@
+<div class="panel-heading">
+	<h3 class="panel-title">{{ year }}年{{ month }}月</h3>
+</div>
+<table class="table table-condensed">
+	<tr>
+		<th>本月總收入</th>
+		<td class="text-right">{{ data.inc }}</td>
+	</tr>
+	<tr>
+		<th>本月現金支出</th>
+		<td class="text-right">{{ data.exp }}</td>
+	</tr>
+	<tr>
+		<th>上月信用卡支出</th>
+		<td class="text-right">{{ data.credit }}</td>
+	</tr>
+	<tr>
+		<th>本月餘額</th>
+		<td class="text-right">{{ data.rest }}</td>
+	</tr>
+	<tr>
+		<th>上月餘額</th>
+		<td class="text-right">{{ data.prev }}</td>
+	</tr>
+	<tr>
+		<th>總餘額</th>
+		<td class="text-right">{{ data.total }}</td>
+	</tr>
+</table>

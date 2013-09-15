@@ -82,3 +82,18 @@ class ExpModify(View):
 		exp.save()
 
 		return HttpResponse('1')
+
+class MonthlyShow(View):
+	def get(self, request, year, month):
+		year = int(year)
+		month = int(month)
+		prev = 0
+		for i in range(0, month):
+			p = Monthly.objects.get(year=year, month=month)
+			prev += p.inc - p.exp - p.credit
+		data = Monthly.objects.get(year=year, month=month)
+		data.prev = prev
+		data.rest = data.inc - data.exp - data.credit
+		data.total = data.prev + data.rest
+
+		return render(request, 'monthly.html', {'data': data, 'year':year, 'month': month})

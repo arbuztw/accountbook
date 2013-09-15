@@ -19,3 +19,7 @@
 #exp-dynamic {
 	display: none;
 }
+
+#prev-day, #next-day {
+	cursor: pointer;
+}

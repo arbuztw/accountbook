@@ -5,4 +5,5 @@ urlpatterns = patterns('book.views',
 	url(r'^exp/(\d+)/(\d+)/(\d+)$', ExpShow.as_view()),
 	url(r'exp/(\d+)/(\d+)/(\d+)/add$', ExpAdd.as_view()),
 	url(r'^exp/modify$', ExpModify.as_view()),
+	url(r'^monthly/(\d+)/(\d+)$', MonthlyShow.as_view()),
 )
